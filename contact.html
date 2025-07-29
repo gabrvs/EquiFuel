@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pl"> <!-- Taka sama funkcja, jak w index.html -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equifuel™ - Contact</title> <!-- Taka sama funkcja, jak w index.html -->
+    <link rel="stylesheet" href="style.css"> <!-- Taka sama funkcja, jak w index.html -->
+    <link rel="stylesheet" href="contactcss.css"> <!-- Dodatkowe podpięcie arkusza stylów, by nie ingerować w globalny plik css -->
+    <link rel="shortcut icon" type="image/png" href=favicon.png> <!-- Taka sama funkcja, jak w index.html -->
+</head>
+<body>
+    <div class="contact-container"><!-- "kontener" dla poprawnego formatowania Flexbox -->
+        <div class="left-col"> <!-- Podział strony na lewą i prawą stronę, dla poprawnego formatowania Flexbox -->
+          <div class="logo"><a href="index.html">equifuel™</a></div> <!-- Taka sama funkcja, jak w index.html -->
+        </div>
+        
+    <div class="right-col"> <!-- Podział strony na lewą i prawą stronę, dla poprawnego formatowania Flexbox -->
+        <div class="theme-switch-wrapper"> 
+          <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" /> <!-- Przełącznik motywów kolorystycznych, dla wygody użytkownika oraz estetyki -->
+            <div class="slider round"></div>
+          </label>
+          <div class="description">
+            Light Mode <!-- Opis przełącznika -->
+          </div>
+        </div>
+       
+    <div class="formcontact"> <!-- Klasyczny div klasowany -->
+          <h1>Contact us</h1> <!-- Nagłowek nr 1 -->
+          <p>Leave us a message, we'll call.</p>
+          
+          <form id="contact-form" method="post"> <!-- Formularz zgodnie z zadaniem w PDF -->
+            <label for="name">Full name</label> <!-- Pole formularza do wprowadzenia pełnego imienia i nazwiska -->
+        <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+            <label for="phonenr">Phone Number</label> <!-- Pole formularza do wprowadzenia nr telefonu -->
+        <input type="tel" id="phonenr" name="phonenr" placeholder="Your Phone Number" required>
+            <label for="message">Message</label> <!-- Pole formularza do wprowadzenia wiadomości kontaktowej użytkownika -->
+        <textarea rows="6" placeholder="Your Message" id="message" name="message" required></textarea>
+           <button type="submit" id="submit" name="submit">Send</button> <!-- Przycisk, 
+            który w przypadku dodania skrypu PHP po stronie servera odpowiadał by za wysłanie wiadomości kontaktowej --> 
+        
+      </form>
+      <div id="error"></div>
+      <div id="success-msg"></div>
+        </div>
+      </div>
+    </div>
+      <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]'); /* Skrypt javascript, 
+        odpowiadający za poprawne działanie przełącznika motywu kolorystycznego strony */
+
+        function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } /* Funkcja warunkowa odpowiadająca za ustawienie motywu ciemnego, gdy przełącznik jest ustawiony w pozycji "checked" */
+        else {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }    /* Jeśli warunek powyżej ↑ nie został spełniony, ustawia motyw strony na jasny */
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+
+        /* Deklaracja zmiennych poprzez pobranie ich z formularza wyżej */
+        const name = document.getElementById('name');
+        const phonenr = document.getElementById('phonenr');
+        const message = document.getElementById('message');
+        const contactForm = document.getElementById('contact-form');
+        const errorElement = document.getElementById('error');
+        const successMsg = document.getElementById('success-msg');
+        const submitBtn = document.getElementById('submit');
+        
+        const validate = (e) => {
+        e.preventDefault();
+        
+        if (name.value.length < 3) /* Wyświetl wiadomość, jeśli zmienna 'name' ma poniżej 3 znaków */ {
+            errorElement.innerHTML = 'Your name should be at least 3 characters long.';
+            return false;
+        } 
+        
+        if (phonenr.value.length < 9) /* Wyświetl wiadomość, jeśli zmienna 'phonenr' ma mniej niż 9 znaków */{
+            errorElement.innerHTML = 'Please enter a valid phone number.';
+            return false;
+        } 
+
+        if (message.value.length < 15) /* Wyświetl wiadomośc, jeśli zmienna 'message' ma mniej niż 15 znaków */{
+            errorElement.innerHTML = 'Please write a longer message.';
+            return false;
+        }
+
+        errorElement.innerHTML = ''; /* Wyświetl wiadomość o wystąpieniu błędu (nie spełnienie któregoś z warunków) */
+        successMsg.innerHTML = 'Thank you! We will call you as soon as possible.'; /* Wyświetl wiadomość, jeśli wszystkie warunki zostaną spełnione */
+
+        e.preventDefault();
+        setTimeout(function () {
+            successMsg.innerHTML = '';
+            document.getElementById('contact-form').reset();
+        }, 6000);
+
+        return true;
+
+        }
+
+        const emailIsValid = email => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        submitBtn.addEventListener('click', validate);
+      </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+body{
+background-color: #001620;
+font-size: 24px;
+scrollbar-width: none;
+-ms-overflow-style: none;
+
+}
+.logo{
+    color: #fff;
+    margin: 10px;
+    font-size: 1em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.logo a{
+    text-decoration: none;
+    color: #fff;
+    margin: 15px;
+}
+.lista{
+    color: #fff;
+    margin: 5px;
+    
+}
+li{
+    list-style-type: disc;
+    line-height: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
