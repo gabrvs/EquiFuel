@@ -1,6 +1,280 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
-/* ---------- GLOBAL / INDEX ---------- */
+/* --- LOGO NA GŁÓWNEJ --- */
+.logo-main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 2em;
+}
+.logo-text {
+    font-size: 2.7em;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.04em;
+    line-height: 1em;
+}
+.pure {
+    font-size: 1em;
+    font-weight: 400;
+    color: #fff;
+    margin-top: 0.2em;
+    margin-left: 0.07em;
+    opacity: 0.7;
+}
+.text.text-left {
+    align-items: flex-start;
+    text-align: left;
+    margin-left: 0;
+    margin-top: 1.2em;
+}
+
+/* --- KONTAKT --- */
+.logo-contact {
+    font-size: 2.3em;
+    padding: 1.2rem;
+    color: var(--contact-font);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+.formcontact {
+    margin-top: 10%;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em 0.5em;
+    background: rgba(0,22,32,0.87);
+    border-radius: 10px;
+    box-shadow: 0 2px 12px #0005;
+}
+.contact-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.right-col {
+    width: 100vw;
+    height: auto;
+    padding: 1.5em 0.5em 0.5em 0.5em;
+}
+.left-col {
+    display: none;
+}
+@media (min-width: 800px) {
+    .contact-container {
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: center;
+        min-height: 90vh;
+    }
+    .left-col {
+        display: flex;
+        width: 35vw;
+        align-items: center;
+        justify-content: center;
+        background: var(--contact-bg);
+    }
+    .right-col {
+        width: 60vw;
+        min-height: 100vh;
+        padding: 5rem 3.5rem;
+    }
+    .formcontact {
+        margin-top: 25%;
+        max-width: 480px;
+        padding: 2em 1em;
+    }
+}
+
+/* --- KATALOG --- */
+.catalog-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1em 1em 2em 1em;
+}
+.catalog-title {
+    color: #fff;
+    font-size: 2.4em;
+    font-weight: 700;
+    margin-bottom: 1.5em;
+    text-align: left;
+    letter-spacing: 0.04em;
+}
+.catalog-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+}
+.catalog-card {
+    background: #13242d;
+    border-radius: 16px;
+    box-shadow: 0 2px 14px #0005;
+    width: 330px;
+    max-width: 94vw;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 1.5em;
+    transition: transform 0.18s;
+}
+.catalog-card:hover {
+    transform: translateY(-6px) scale(1.03);
+}
+.catalog-img {
+    border-radius: 16px 16px 0 0;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #2b4a5d;
+}
+.catalog-info {
+    padding: 1em 1.1em 1em 1.1em;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+    min-height: 120px;
+}
+.catalog-name {
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #7ae4ff;
+    margin-bottom: 0.3em;
+}
+.catalog-desc {
+    font-size: 1em;
+    color: #cecece;
+}
+@media (max-width: 900px) {
+    .catalog-grid {
+        gap: 1em;
+    }
+    .catalog-card {
+        width: 95vw;
+        margin-bottom: 1em;
+    }
+    .catalog-img {
+        height: 160px;
+    }
+}
+@media (max-width: 600px) {
+    .catalog-title {
+        font-size: 1.35em;
+        margin-bottom: 1em;
+    }
+    .catalog-info {
+        min-height: 80px;
+        padding: 0.7em 0.4em 0.7em 0.4em;
+    }
+    .catalog-img {
+        height: 110px;
+    }
+}
+
+/* --- POPRAWKI DLA ZAKŁADKI DYSTRYBUTORZY NA SMARTFONACH --- */
+body.distributors-page {
+  background-color: #001620;
+  font-size: 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0 0.5em;
+}
+
+.logo.distributors-logo {
+  color: #fff;
+  margin: 10px 0;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.lista {
+  color: #fff;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  padding: 0;
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(0,22,32,0.85);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #0005;
+}
+
+.lista li {
+  list-style: none;
+  padding: 0.7em 1em;
+  margin: 0;
+  font-size: 1em;
+  border-bottom: 1px solid #2a3f4d;
+  display: block;
+  text-align: left;
+  line-height: 1.4em;
+}
+
+.lista li:first-child {
+  font-size: 1.15em;
+  font-weight: 600;
+  background: #102030;
+  border-radius: 12px 12px 0 0;
+  border-bottom: 2px solid #818386;
+  text-align: center;
+}
+
+.lista li:last-child {
+  border-bottom: none;
+  border-radius: 0 0 12px 12px;
+}
+
+@media (max-width: 600px) {
+  body.distributors-page {
+    font-size: 16px;
+    padding: 0 0.1em;
+  }
+  .logo.distributors-logo {
+    font-size: 1em;
+    margin: 8px 0;
+  }
+  .lista {
+    max-width: 98vw;
+    font-size: 1em;
+    box-shadow: 0 2px 8px #0002;
+  }
+  .lista li {
+    padding: 0.6em 0.7em;
+    font-size: 0.95em;
+    word-break: break-word;
+  }
+  .lista li:first-child {
+    font-size: 1.05em;
+    padding: 0.6em 0.7em;
+  }
+}
+
+/* --- POZOSTAŁE STYLE GLOBALNE --- */
+@media (max-width: 991px)
+{
+  .showcase,
+  .showcase header
+  {
+    padding: 40px;
+  }
+  .text h2
+  {
+    font-size: 3em;
+  }
+  .text h3
+  {
+    font-size: 2em;
+  }
+}
+
+/* ---------- INDEX ---------- */
 *
 {
   margin: 0;
@@ -24,9 +298,6 @@ header .logo
 {
   color: #fff;
   cursor: pointer;
-}
-.pure{
-    font-size: 0.6em;
 }
 .toggle {
   position: relative;
@@ -206,23 +477,6 @@ header .logo
   color: #03a9f4; 
 }
 
-@media (max-width: 991px)
-{
-  .showcase,
-  .showcase header
-  {
-    padding: 40px;
-  }
-  .text h2
-  {
-    font-size: 3em;
-  }
-  .text h3
-  {
-    font-size: 2em;
-  }
-}
-
 /* ---------- CONTACT ---------- */
 :root { 
   --contact-main: #FCFDFD;
@@ -240,42 +494,6 @@ header .logo
   --contact-button: #3B3636;
   --contact-h1: #3F444C;
   --contact-font: #001620;
-}
-.contact-container {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  background: var(--contact-bg);
-}
-.formcontact{
-  margin-top: 25%;
-}
-.left-col {
-  width: 45vw;
-  height: 100%;
-  background-color: var(--contact-bg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.logo {
-  font-size: 2.5em;
-  padding: 1.5rem;
-  color: var(--contact-font);
-  font-weight: 800;
-}
-.logo a{
-  text-decoration: none;
-  color: var(--contact-font);
-}
-.right-col {
-  background: var(--contact-bg);
-  width: 50vw;
-  height: 100vh;
-  padding: 5rem 3.5rem;
 }
 h1, label, button, .description {
   font-family: 'Poppins', sans-serif;
@@ -464,174 +682,4 @@ input:checked + .slider:before {
   .slider.round:before {
     border-radius: 50%;
   }
-}
-
-/* ---------- GALLERY / pod1 ---------- */
-.photo-hide-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-body.gallery-page {
-  background-color: #001620;
-}
-.logo.gallery-logo {
-  font-size: 2.5em;
-  padding: 1.5rem;
-  font-weight: 800; 
-  color: #fff;
-}
-.logo.gallery-logo a{
-  text-decoration: none;
-  color: #fff;
-}
-.gallery-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: #001620;
-  width: 80%;
-  margin: 0 auto;
-  padding: 10px;
-}
-.gallery-item {
-  flex-basis: 26%;
-  margin-bottom: 6px;
-  opacity: .85;
-  cursor: pointer;
-  margin-left: 6px;
-  margin-right: 6px;
-  color: #fff;
-}
-.gallery-item:hover {
-  opacity: 1;
-}
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.gallery-content {
-  font-size: .8em;
-}
-.lightbox {
-  position: fixed;
-  display: none;
-  background-color: rgba(0, 0, 0, 0.8);
-  width: 90%;
-  height: 90%;              
-  overflow: auto;
-  top: 0;
-  left: 0;
-}
-.lightbox-content {
-  position: relative;
-  width: 70%;
-  height: 70%;
-  margin: 5% auto;
-}
-.lightbox-content img {
-  border-radius: 7px;
-  box-shadow: 0 0 3px 0 rgba(225, 225, 225, .25);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.lightbox-prev,
-.lightbox-next {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  padding: 7px;
-  top: 45%;
-  cursor: pointer;
-}
-.lightbox-prev {
-  left: 0;
-}
-.lightbox-next {
-  right: 0;
-}
-.lightbox-prev:hover,
-.lightbox-next:hover {
-  opacity: .8;
-}
-@media (max-width: 767px) {
-  .gallery-container {
-      width: 100%;
-  }
-  .gallery-item {
-      flex-basis: 49.80%;
-      margin-bottom: 3px;
-  }
-  .lightbox-content {
-      width: 80%;
-      height: 60%;
-      margin: 15% auto;
-  }
-}
-@media (max-width: 480px) {
-  .gallery-item {
-      flex-basis: 100%;
-      margin-bottom: 1px;
-  }
-  .lightbox-content {
-      width: 90%;
-      margin: 20% auto;
-  }
-}
-
-/* ---------- ABOUT / pod2 ---------- */
-body.about-page {
-    font-size: 24px;
-    color:#fff;
-}
-.desc-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:space-around;
-    background-color: #001620;
-    width: 80%;
-    margin: 0 auto;
-    padding: 5px;
-    line-height: 2em;
-    font-size: 1.25em;
-    padding: 1em;
-}
-.desc-item{
-    text-justify: auto;
-    margin: 0.8em;
-    text-shadow: 0 0 5px #eedede;
-}
-
-/* ---------- DISTRIBUTORS / pod3 ---------- */
-body.distributors-page {
-  background-color: #001620;
-  font-size: 24px;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.logo.distributors-logo{
-  color: #fff;
-  margin: 10px;
-  font-size: 1em;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-.logo.distributors-logo a{
-  text-decoration: none;
-  color: #fff;
-  margin: 15px;
-}
-.lista{
-  color: #fff;
-  margin: 5px;
-}
-li{
-  list-style-type: disc;
-  line-height: 3em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1em;
 }
