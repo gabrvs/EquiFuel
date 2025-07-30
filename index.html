@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl"> <!-- Deklaracja języka strony, aby zapobiec niepotrzebnemu tłumaczeniu  -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equifuel™ - Homepage</title> <!-- Wprowadzenie czytelnego tytułu strony korespondującego z marką -->
+    <link rel="stylesheet" href="style.css"> <!-- Przypisanie arkusza stylów -->
+    <link rel="shortcut icon" type="image/png" href=favicon.png> <!-- Uzupełnienie motywu graficznego strony o favicon -->
+</head>
+<body>
+    <section class="showcase">
+        <header> <!-- Oznaczenie nagłówka -->
+            <h2 class="logo">
+              equifuel™<br> <!-- Logo marki "Equifuel", w tym wypadku stworzone za pomocą nagłówka klasowanego -->
+            <div class="pure"> <!-- Slogan marki, div klasowany w celu poźniejszego odniesienia się do niego w arkuszu stylów -->
+              the purest.
+            </div> 
+            </h2>
+          <div class="toggle"></div> <!-- Toggle, przycisk rozwijający menu -->
+        </header>
+        <div class="overlay"></div> <!-- Overlay, funkcjonujący jako tło -->
+        <div class="text">
+          <h2>Equifuel™</h2> 
+          <h3>Premium horse nutrition</h3>
+          <p>
+           Highest quality dietary supplements and feed for horses <!-- Krótki opis, czym głownie zajmuje się firma Equifuel -->
+            </p>
+          <a href="pod1.html">catalog</a>
+          </div>
+        <ul class="social"> <!-- Fatfooter zgodnie z zadaniem w PDF, zbudowany natomiast poprzez unordered list-->
+          <h5><a href="pod1.html">Products</a></h5><br>
+          <h5><a href="pod3.html">Distributors</a></h5><br>
+          <h5><a href="contact.html">Contact</a></h5><br>
+        </ul>
+        
+      </section>
+      <div class="menu"> <!-- Menu, również zgodnie z zadaniem z PDF od Pana :) -->
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pod1.html">Products </a></li>
+          <li><a href="pod2.html">About us</a></li> <!-- Jeden z odnośników do podstron, stworzony również poprzez unordered list -->
+          <li><a href="pod3.html">Distributors</a></li>
+          <li><a href="contact.html">Contact</a></li><br>
+          Made by @Gabriel Jarosz
+        </ul>
+      </div>
+      
+      <script> 
+        const menuToggle = document.querySelector('.toggle');
+     const showcase = document.querySelector('.showcase');
+
+     menuToggle.addEventListener('click', () => {
+       menuToggle.classList.toggle('active');
+       showcase.classList.toggle('active');
+     })
+   </script> <!-- Skrypt w js, pozwalający na rozwijanie się menu -->
+</body>
+
+</html>
