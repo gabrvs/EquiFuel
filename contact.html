@@ -10,76 +10,72 @@
 <body>
     <div class="contact-container">
         <div class="left-col">
-          <div class="logo"><a href="index.html">equifuel™</a></div>
+          <div class="logo-contact"><a href="index.html">equifuel™</a></div>
         </div>
-    <div class="right-col">
-        <div class="theme-switch-wrapper"> 
-          <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox" />
-            <div class="slider round"></div>
-          </label>
-          <div class="description">
-            Light Mode
-          </div>
+        <div class="right-col">
+            <div class="theme-switch-wrapper">
+              <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+              </label>
+              <div class="description">Light Mode</div>
+            </div>
+            <div class="formcontact">
+              <h1>Contact us</h1>
+              <p>Leave us a message, we'll call.</p>
+              <form id="contact-form" method="post">
+                <label for="name">Full name</label>
+                <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                <label for="phonenr">Phone Number</label>
+                <input type="tel" id="phonenr" name="phonenr" placeholder="Your Phone Number" required>
+                <label for="message">Message</label>
+                <textarea rows="6" placeholder="Your Message" id="message" name="message" required></textarea>
+                <button type="submit" id="submit" name="submit">Send</button>
+              </form>
+              <div id="error"></div>
+              <div id="success-msg"></div>
+            </div>
         </div>
-    <div class="formcontact">
-          <h1>Contact us</h1>
-          <p>Leave us a message, we'll call.</p>
-          <form id="contact-form" method="post">
-            <label for="name">Full name</label>
-            <input type="text" id="name" name="name" placeholder="Your Full Name" required>
-            <label for="phonenr">Phone Number</label>
-            <input type="tel" id="phonenr" name="phonenr" placeholder="Your Phone Number" required>
-            <label for="message">Message</label>
-            <textarea rows="6" placeholder="Your Message" id="message" name="message" required></textarea>
-            <button type="submit" id="submit" name="submit">Send</button>
-      </form>
-      <div id="error"></div>
-      <div id="success-msg"></div>
-        </div>
-      </div>
     </div>
-      <script>
+    <script>
         const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
         function switchTheme(e) {
-        if (e.target.checked) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-        }
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
         }
         toggleSwitch.addEventListener('change', switchTheme, false);
         const name = document.getElementById('name');
         const phonenr = document.getElementById('phonenr');
         const message = document.getElementById('message');
-        const contactForm = document.getElementById('contact-form');
         const errorElement = document.getElementById('error');
         const successMsg = document.getElementById('success-msg');
         const submitBtn = document.getElementById('submit');
         const validate = (e) => {
-        e.preventDefault();
-        if (name.value.length < 3) {
-            errorElement.innerHTML = 'Your name should be at least 3 characters long.';
-            return false;
-        } 
-        if (phonenr.value.length < 9){
-            errorElement.innerHTML = 'Please enter a valid phone number.';
-            return false;
-        } 
-        if (message.value.length < 15){
-            errorElement.innerHTML = 'Please write a longer message.';
-            return false;
-        }
-        errorElement.innerHTML = '';
-        successMsg.innerHTML = 'Thank you! We will call you as soon as possible.';
-        e.preventDefault();
-        setTimeout(function () {
-            successMsg.innerHTML = '';
-            document.getElementById('contact-form').reset();
-        }, 6000);
-        return true;
+            e.preventDefault();
+            if (name.value.length < 3) {
+                errorElement.innerHTML = 'Your name should be at least 3 characters long.';
+                return false;
+            }
+            if (phonenr.value.length < 9){
+                errorElement.innerHTML = 'Please enter a valid phone number.';
+                return false;
+            }
+            if (message.value.length < 15){
+                errorElement.innerHTML = 'Please write a longer message.';
+                return false;
+            }
+            errorElement.innerHTML = '';
+            successMsg.innerHTML = 'Thank you! We will call you as soon as possible.';
+            setTimeout(function () {
+                successMsg.innerHTML = '';
+                document.getElementById('contact-form').reset();
+            }, 6000);
+            return true;
         }
         submitBtn.addEventListener('click', validate);
-      </script>
+    </script>
 </body>
 </html>
